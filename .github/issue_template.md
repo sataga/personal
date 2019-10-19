@@ -1,5 +1,5 @@
 ---
-labels: "勉強メモ"
+labels: PHP
 ---
 
 ## 参考にしたURL
