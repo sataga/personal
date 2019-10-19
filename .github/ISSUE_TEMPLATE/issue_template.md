@@ -2,7 +2,7 @@
 name: Custom issue template
 about: Describe this issue template's purpose here.
 title: ''
-labels: 勉強メモ
+labels: 
 assignees: 'sataga'
 projects: 'memos'
 
