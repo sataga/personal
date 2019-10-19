@@ -1,6 +1,4 @@
 ---
-title: ''
-labels: ''
 assignees: 'sataga'
 projects: 'memos'
 ---
