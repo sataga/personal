@@ -1,2 +1,2 @@
 # personal
-memo書くよう
+memo書く用
