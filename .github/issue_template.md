@@ -1,5 +1,5 @@
 ---
-labels: PHP
+labels: "PHP"
 ---
 
 ## 参考にしたURL
