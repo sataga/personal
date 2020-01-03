@@ -1,23 +1,40 @@
-BEGIN {
-  split("Gold Silver Bronze", ranks)
-  print "Available Ranks:"
-  # for (i = 1; i <= 3; i++) {
-  for (i = 1; i <= length(ranks); i++) {
-    print ranks[i]
-  }
-  print "------"
+{
+  sum = getSum()
+  total[$3] += sum
 }
-NR < 4 {
+END {
+  for (name in total) {
+    printf "Name: %-10s Total: %'10d %s\n", name, total[name], getBarGraph(total[name])
+  }
+}
+
+function getBarGraph(total) {
+  s = ""
+  for (i = 1; i <= int(total / 1000); i++) {
+    s = s "*"
+  }
+  return s
+}
+
+function getSum() {
   sum = 0
   for (i = 4; i <= 7; i++) {
     sum += $i
   }
+  return sum
+}
+
+function getRank(sum) {
+  # split("Gold Silver Bronze", ranks)
+  ranks["first"] = "Gold"
+  ranks["second"] = "Silver"
+  ranks["third"] = "Bronze"
   if (sum > 1000) {
-    rank = ranks[1]
+    rank = ranks["first"]
   } else if (sum > 800) {
-    rank = ranks[2]
+    rank = ranks["second"]
   } else {
-    rank = ranks[3]
+    rank = ranks["third"]
   }
-  printf "Name: %-10s Sum: %'10d Rank: %-10s\n", $3, sum, rank
+  return rank
 }
